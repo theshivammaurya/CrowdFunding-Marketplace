@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-
 const Hero =({titleData,createCampaign}) =>{
   const [campaign, setCampaign]= useState({
     title:"",
@@ -12,9 +11,12 @@ const Hero =({titleData,createCampaign}) =>{
     e.preventDefault();
     try{
       const data= await createCampaign(campaign);
+      alert("Campaign Successfully Created");
+      window.location.reload();
     }
     catch(error){
       console.log(error);
+      alert("Something went wrong", error);
     }
   };
   return(
@@ -63,7 +65,6 @@ const Hero =({titleData,createCampaign}) =>{
          </svg>
          </a>
      </div>
-
         <div className='w-full max-w-xl xl:px-8 xl:w-5/12'>
         <div className='bg-white rounded shadow-2xl p-7 sm:p-10'>
            <h3 className='mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl'>

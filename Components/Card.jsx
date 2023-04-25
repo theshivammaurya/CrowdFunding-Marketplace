@@ -9,7 +9,7 @@ const Card = ({allcampaign, setOpenModel, setDonate, title}) => {
     return remainingDays.toFixed(0);
   };
   return (
-    <div className='px-4 py-16  mx-auto sm:max-w-xl md:max-w-full
+    <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full
     lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20'>
     <p className='py-16 text-2xl font-bold leading-5'>
 {title}
@@ -19,7 +19,7 @@ const Card = ({allcampaign, setOpenModel, setDonate, title}) => {
       <div 
       onClick={()=>(setDonate(campaign),setOpenModel(true))}
       key={i + 1}
-      className='cursor-pointer border overflow-hidden transition-shadow 
+      className='cursor-pointer border-2 overflow-hidden transition-shadow 
       duration-300 bg-white rounded'
       >
       <img src="https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?
@@ -28,10 +28,10 @@ const Card = ({allcampaign, setOpenModel, setDonate, title}) => {
        alt="" />
 
        <div className='py-5 pl-2'>
-       <p className='mb-2 text-sm font-semibold text-gray-600'>
+       <p className='mb-2 text-sm font-semibold text-black'>
          Created By: {campaign.owner.slice(0,30)}..
         </p>
-       <p className='mb-2 text-sm font-semibold text-gray-600 uppercase'>
+       <p className='mb-2 text-sm font-bold text-gray-600 uppercase'>
        Days Left:&nbsp; {daysLeft(campaign.deadline) }
        </p>
    <a href="/"
@@ -42,7 +42,7 @@ const Card = ({allcampaign, setOpenModel, setDonate, title}) => {
   {campaign.title}
     </p>
    </a>
-   <p className='mb-4 text-gray-700'>
+   <p className='mb-4 text-orange-700 font-semibold'>
   {campaign.description}
    </p>
    <div className='flex space-x-4'>

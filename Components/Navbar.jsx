@@ -10,16 +10,19 @@ const Navbar =()=>{
 
   const menuList =["White Paper","Project","Donation","Members"];
   return(
-    <div class="backgroundMain">
-     <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
+    
+    <div class="backgroundMain">   
+     <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 "> 
      <div class="relative flex items-center justify-between ">
       <div class="flex items-center">
+       
         <a href="/" 
         aria-label="Company" 
         title ="Company"
          class="inline-flex items-center mr-8"
          >
         <Logo color="text-white" />
+         
         <span class = "ml-7 text-3xl font-bold tracking-wide uppercase text-amber-400 italic font-serif">
         FundRaise </span>
         </a>
@@ -36,10 +39,15 @@ const Navbar =()=>{
             </li>
           ))}
         </ul>
+        <div className="inline-flex ml-20  items-center space-x-8 hidden  lg:flex border-solid text-green-400 ">
+              {currentAccount.slice(0,20)}
+        </div>
       </div>
 
+      
       {!currentAccount  && (
         <ul class="flex items-center hidden space-x-8 lg:flex">
+        
           <li>
             <button onClick={()=> connectWallet()}
             class="inline-flex items-center justify-center h-12 px-6 font-medium
@@ -48,15 +56,12 @@ const Navbar =()=>{
               focus:shadow-outline focus:outline-none background"
               aria-label="Sign up"
               title="Sign up"
-              > Connect Wallet </button>
-               
+              > Connect Wallet </button>                           
           </li>
-          
         </ul>
       )}  
-      <div className="inline-flex items-center text-base justify-center h-12 font-medium
-              tracking-wide border-solid text-green-400">
-              {currentAccount.slice(0,15)}</div>   
+   
+    
 
       <div class="lg:hidden z-40" >
         <button 
@@ -68,6 +73,7 @@ const Navbar =()=>{
           > 
          <Menu/>
          </button>
+         
         {isMenuOpen && (
           <div class="absolute top-0 left-0 w-full">
           <div class= "p-5 bg-white border rounded shadow-sm">
@@ -78,7 +84,6 @@ const Navbar =()=>{
             title="Company"
             class="inline-flex items-center"
             >
-
               <Logo color="text-black" />
               <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase" >
                FundPrism 
@@ -105,6 +110,7 @@ const Navbar =()=>{
            </div>
            </div>
           <nav>
+          
             <ul class="space-y-4">
               {menuList.map((el,i)=>(
                 <li key={i + 1}>
@@ -115,28 +121,34 @@ const Navbar =()=>{
                   >{el}
                   </a>
                 </li>
+                
               ))}
+             
               <li> 
-                     <a   href="/"
+              {!currentAccount  && (
+              <button onClick={()=> connectWallet()}
                      class="inline-flex items-center background justify-center w-full h-12 px-6
                      font-medium tracking-wide text-white transition duration-200 rounded 
                      shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700
                      focus:shadow-outline focus:outline-none"
                      aria-label="Sign up"
                      title="Sign up"
-                     >
-                     Connect Wallet 
-                     </a>
+                     > Connect Wallet </button> 
+              )}
+              <div className="inline-flex items-center justify-center w-full h-12 px-6
+                     font-medium tracking-wide text-semibold text-red-600 ">
+              {currentAccount.slice(0,20)}</div>
                      </li>
                      </ul>
-                     </nav>     
+                     </nav>   
                    </div>
                 </div>
         )}
+           </div> 
            </div>
-           </div>
-           </div>
-           </div>           
+           </div> 
+           </div>       
+               
   );
 };
 

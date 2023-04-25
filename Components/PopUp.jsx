@@ -2,15 +2,17 @@ import React ,{useState,useEffect}from 'react'
 
 const PopUp=({setOpenModel,donate,donateFunction,getDonations})=>{
 const[amount,setAmount]=useState("");
-const[allDonationDate, setallDonationDate]= useState();
+const[allDonationData, setallDonationData]= useState();
 
 const createDonation = async()=>{
   try{
     const data= await donateFunction(donate.pId, amount);
-    console.log(date);
+    alert("Donated Successfully");
+    window.location.reload(); 
+    console.log("popup error",date);
   }
   catch(error){
-    console.log(error);
+    console.log("error in create dontation function in popup.jsx",error)
   }
 };
 
@@ -18,7 +20,7 @@ useEffect(()=>{
   const donationsListData = getDonations(donate.pId);
   return async()=>{
    const donationData= await donationsListData;
-    setallDonationDate(donationData);
+    setallDonationData(donationData);
   };
 },[]);
 return (
@@ -33,7 +35,7 @@ return (
 
    <div className='flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t'>
    <h3 className='text-3xl font-semibold'>
-    {donate.title}
+    {donate.title.toUpperCase()}
    </h3>
 
 <button className='p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none
@@ -62,10 +64,10 @@ id="firstName"
 name="firstName"
  />
 
- {allDonationDate?.map((donate,i)=>(
+ {allDonationData?.map((donate,i)=>(
   <p className='my-4 text-slate-500 text-lg leading-relaxed '>
   {i+1}{":)"} {donate.donation}   {"ETH -->  "}
-  {donate.donator.slice(0,40)}..
+  {donate.donator.slice(0,35)}..
   </p>
  ))}
  </div>

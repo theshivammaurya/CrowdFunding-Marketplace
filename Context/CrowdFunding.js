@@ -44,7 +44,7 @@ export const CrowdFundingContext = React.createContext();
 
     const getCampaigns = async()=>{
         try{
-        const provider = new ethers.providers.JsonRpcProvider();
+        const provider = new ethers.providers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/eUNvDqqa5iQ7FNz4ooa5r2JDNaL0czJv');
         const contract = fetchContract (provider);
         const campaigns = await contract.getCampaigns();
 
@@ -65,7 +65,7 @@ export const CrowdFundingContext = React.createContext();
     };
 
     const getUserCampaigns = async ()=>{
-        const provider = new ethers.providers.JsonRpcProvider();
+        const provider = new ethers.providers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/eUNvDqqa5iQ7FNz4ooa5r2JDNaL0czJv');
         const contract = fetchContract(provider);
         const allCampaigns = await contract.getCampaigns();
         const accounts = await window.ethereum.request({
@@ -108,7 +108,7 @@ export const CrowdFundingContext = React.createContext();
 
 
        const getDonations = async(pId)=>{
-        const provider = new ethers.providers.JsonRpcProvider();
+        const provider = new ethers.providers.JsonRpcProvider('https://eth-sepolia.g.alchemy.com/v2/eUNvDqqa5iQ7FNz4ooa5r2JDNaL0czJv');
         const contract = fetchContract(provider);
 
         const donations = await contract.getDonators(pId);
