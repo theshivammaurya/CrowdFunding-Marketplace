@@ -4,5 +4,5 @@ import crowdFunding from"./CrowdFunding.json"; // import ABI
 
 //Crowd Funding Marketplace
 
-export const CrowdFundingAddress= "0xE0242CcC1557ECF4702aD59FDb554ABda3BE4669";
+export const CrowdFundingAddress= "0xc755cDA5aC14c421F14bA52e5293A80655f50179";
 export const CrowdFundingABI= crowdFunding.abi;

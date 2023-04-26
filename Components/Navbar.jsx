@@ -11,7 +11,7 @@ const Navbar =()=>{
   const menuList =["White Paper","Project","Donation","Members"];
   return(
     
-    <div class="backgroundMain">   
+    <div class="backgroundMainn">   
      <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 "> 
      <div class="relative flex items-center justify-between ">
       <div class="flex items-center">
@@ -39,27 +39,28 @@ const Navbar =()=>{
             </li>
           ))}
         </ul>
-        <div className="inline-flex ml-20  items-center space-x-8 hidden  lg:flex border-solid text-green-400 ">
-              {currentAccount.slice(0,20)}
+        <div className="inline-flex ml-20 h-9 px-6 items-center space-x-8 hidden  rounded-xl lg:flex border-solid text-blue-200 font-semibold ">
+              {currentAccount.slice(0,17)}
         </div>
       </div>
 
       
       {!currentAccount  && (
         <ul class="flex items-center hidden space-x-8 lg:flex">
-        
           <li>
-            <button onClick={()=> connectWallet()}
+            <button onClick={()=> connectWallet() }
             class="inline-flex items-center justify-center h-12 px-6 font-medium
               tracking-wide text-white transition duration-200 rounded shadow-md
               bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700
               focus:shadow-outline focus:outline-none background"
               aria-label="Sign up"
               title="Sign up"
-              > Connect Wallet </button>                           
+              > Connect Wallet </button>    
+                                         
           </li>
         </ul>
       )}  
+        
    
     
 
